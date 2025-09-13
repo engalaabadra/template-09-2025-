@@ -1,0 +1,30 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+use App\Resources\BaseResource;
+
+class {{ class }} extends BaseResource
+{
+    // Define which relations use which Resource
+    public array $relationsResources = [
+        
+    ];
+    
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string, mixed>
+     */
+    public function toArray(Request $request): array
+    {
+        // Load main fields dynamically (default fillable attributes) from BaseResource
+        $data = parent::toArray($request);
+
+        // Add specific  Handling data  here
+        
+        return $data;
+    }
+}

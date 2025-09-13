@@ -1,0 +1,102 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ rootNamespace }}Http\Controllers\BaseController;
+use App\Models\{{ model }};
+use App\Services\{{ model }}Service;
+use App\Repositories\{{ model }}Repository;
+use App\Resources\{{ model }}Resource;
+use App\Http\Requests\{{ model }}\{{ storeRequest }};
+use App\Http\Requests\{{ model }}\{{ updateRequest }};
+use Illuminate\Http\Request;
+
+class {{ class }} extends BaseController
+{
+    protected ${{ modelVariable }};
+    protected ${{ serviceVariable }};
+    protected ${{ repositoryVariable }};
+
+    public function __construct({{ model }} ${{ modelVariable }}, {{ model }}Service ${{ serviceVariable }}, {{ model }}Repository ${{ repositoryVariable }})
+    {
+        $this->{{ modelVariable }} = ${{ modelVariable }};
+        $this->{{ serviceVariable }} = ${{ serviceVariable }};
+        $this->{{ repositoryVariable }} = ${{ repositoryVariable }};
+    }
+
+    // ===================== CRUD Methods =====================
+    public function index()
+    {
+        $result = $this->{{ repositoryVariable }}->getData($this->{{ modelVariable }});
+        return $this->respond($result, {{ model }}Resource::class);
+    }
+
+    public function show($id)
+    {
+        $result = $this->{{ repositoryVariable }}->show($id, $this->{{ modelVariable }});
+        return $this->respond($result, {{ model }}Resource::class);
+    }
+
+    public function store({{ storeRequest }} $request)
+    {
+        $result = $this->{{ serviceVariable }}->store($request, $this->{{ modelVariable }});
+        return $this->respond($result, {{ model }}Resource::class);
+    }
+
+    public function update({{ updateRequest }} $request, $id)
+    {
+        $result = $this->{{ serviceVariable }}->update($request, $id, $this->{{ modelVariable }});
+        return $this->respond($result, {{ model }}Resource::class);
+    }
+
+    public function destroy($id)
+    {
+        $result = $this->{{ serviceVariable }}->destroy($id, $this->{{ modelVariable }});
+        return $this->respond($result);
+    }
+
+    // ===================== Trash Methods =====================
+    public function destroyMany(Request $request)
+    {
+        $result = $this->{{ serviceVariable }}->destroyMany($request, $this->{{ modelVariable }});
+        return $this->respond($result);
+    }
+
+    public function restore($id)
+    {
+        $result = $this->{{ serviceVariable }}->restore($id, $this->{{ modelVariable }});
+        return $this->respond($result, {{ model }}Resource::class);
+    }
+
+    public function restoreMany(Request $request)
+    {
+        $result = $this->{{ serviceVariable }}->restoreMany($request, $this->{{ modelVariable }});
+        return $this->respond($result);
+    }
+
+    // ===================== Activation Methods =====================
+    public function changeActivate($id)
+    {
+        $result = $this->{{ serviceVariable }}->changeActivate($id, $this->{{ modelVariable }});
+        return $this->respond($result, {{ model }}Resource::class);
+    }
+
+    public function changeActivateMany(Request $request)
+    {
+        $result = $this->{{ serviceVariable }}->changeActivateMany($request, $this->{{ modelVariable }});
+        return $this->respond($result);
+    }
+
+    // ===================== File Handling Methods =====================
+    public function uploadFile(Request $request, $id)
+    {
+        $result = $this->{{ serviceVariable }}->uploadFile($request, $id, $this->{{ modelVariable }});
+        return $this->respond($result, {{ model }}Resource::class);
+    }
+
+    public function deleteFile($id)
+    {
+        $result = $this->{{ serviceVariable }}->deleteFile($id, $this->{{ modelVariable }});
+        return $this->respond($result);
+    }
+}
