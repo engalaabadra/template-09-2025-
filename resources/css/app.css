@@ -1,0 +1,277 @@
+/* @import 'tailwindcss'; */
+
+@source '../**/*.js';
+
+@custom-variant dark (&:is(.dark *));
+@font-face {
+    font-family: 'Doran-VF';
+    src: url('fonts/Doran-VF.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HTRakik-SemiBold';
+    src: url('fonts/HTRakik-SemiBold.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@theme inline {
+    --font-sans: var(--theme-font-sans);
+    --font-serif: var(--theme-font-serif);
+
+    /*Primary Colors*/
+    --color-primary-50: var(--theme-color-primary-50);
+    --color-primary-100: var(--theme-color-primary-100);
+    --color-primary-200: var(--theme-color-primary-200);
+    --color-primary-300: var(--theme-color-primary-300);
+    --color-primary-400: var(--theme-color-primary-400);
+    --color-primary-500: var(--theme-color-primary-500);
+    --color-primary-600: var(--theme-color-primary-600);
+    --color-primary-700: var(--theme-color-primary-700);
+    --color-primary-800: var(--theme-color-primary-800);
+    --color-primary-900: var(--theme-color-primary-900);
+    --color-primary-950: var(--theme-color-primary-950);
+
+    /* Secondary Colors */
+    --color-secondary-50: var(--theme-color-secondary-50);
+    --color-secondary-100: var(--theme-color-secondary-100);
+    --color-secondary-200: var(--theme-color-secondary-200);
+    --color-secondary-300: var(--theme-color-secondary-300);
+    --color-secondary-400: var(--theme-color-secondary-400);
+    --color-secondary-500: var(--theme-color-secondary-500); /* اللون الأساسي */
+    --color-secondary-600: var(--theme-color-secondary-600);
+    --color-secondary-700: var(--theme-color-secondary-700);
+    --color-secondary-800: var(--theme-color-secondary-800);
+    --color-secondary-900: var(--theme-color-secondary-900);
+    --color-secondary-950: var(--theme-color-secondary-950);
+
+    --p-inputtext-border-color: var(--theme-color-secondary-500);
+
+    --color-gold-100: #ffeb51;
+    --color-gold-200: #e8d122;
+    --color-gold-300: #d0bb19;
+    --color-gold-400: #a8960c;
+    --color-gold-500: #938305;
+    --color-gold-600: #938305;
+    --color-gold-700: #756801;
+    --color-gold-800: #4f4705;
+    --color-gold-900: #373204;
+
+    --color-dark-50: #37424d;
+    --color-dark-100: #252e38;
+    --color-dark-200: #1e2732;
+    --color-dark-300: #1c2732;
+    --color-dark-400: #2c3640;
+    --color-dark-500: #15202b;
+
+    --drop-shadow-md: 0px 10px 35px 0px rgb(56 71 109 / 8%);
+
+    --shadow-inst: inset 0 0 0 1px #2f6aa6, inset 0 0 0 1px #2f6aa6, inset 0 0 0 1px #2f6aa6,
+    inset 0 0 0 1px #2f6aa6;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+
+.p-tab-active{
+    /* @apply !text-secondary-500 */
+}
+button {
+    @apply cursor-pointer
+}
+
+.bidi-override {
+    unicode-bidi: bidi-override;
+}
+
+.card-content-info {
+    @apply p-2 bg-neutral-50 rounded-md text-sm gap-4 flex text-gray-500;
+}
+
+.button-classes {
+    @apply border inline-block leading-none disabled:opacity-20 disabled:cursor-progress py-2 px-8
+    rounded-sm transition-all duration-300 text-sm font-bold whitespace-nowrap ;
+}
+
+.p-badge {
+    line-height: 2.2;
+}
+
+.p-badge-under_construction {
+    @apply bg-gray-400 text-white
+}
+
+.p-badge-for_sale {
+    /* @apply bg-primary-100 text-primary-500 */
+}
+
+.p-badge-for_sale_on_map {
+    /* @apply bg-primary-500 text-white */
+}
+
+.p-button-text {
+    /* @apply text-primary-600 enabled:hover:text-primary-500; */
+}
+
+.p-button.p-button-text:enabled:focus, .p-button.p-button-outlined:enabled:focus,
+.p-button.p-button-text:enabled:hover {
+    /* @apply bg-primary-50; */
+}
+
+.horizontal-menu.p-button-text {
+    /* @apply text-dark-500!; */
+    background-color: rgb(248, 250, 252) !important;
+}
+
+.horizontal-menu.p-button.p-button-text:enabled:focus, .horizontal-menu.p-button.p-button-outlined:enabled:focus,
+.horizontal-menu.p-button.p-button-text:enabled:hover {
+    background-color: rgb(151, 152, 152) !important;
+}
+
+.bg-statistic {
+    background: var(--theme-color-primary-500) url("images/bg-statistics.svg") no-repeat center;
+    background-size: cover;
+}
+
+.bg-chart-statistic {
+    background: var(--theme-color-primary-500) url("images/bg-chart-statistic.svg") no-repeat center;
+    background-size: cover;
+}
+
+.p-card-body {
+    @apply h-full;
+}
+
+.body-center .p-card-body .p-card-content {
+    /* @apply h-full! flex! justify-center! items-center!; */
+}
+
+.active-tab {
+    /* @apply bg-primary-500 text-white font-bold; */
+}
+
+body .link-text {
+    /* @apply text-primary-700 hover:text-primary-500 select-none */
+}
+
+body .el-container {
+    @apply bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 text-slate-900 dark:text-slate-50 rounded-md p-2
+}
+
+body .text-direction {
+    @apply rtl:text-right ltr:text-left
+}
+
+body .text-direction-reverse {
+    @apply ltr:text-right rtl:text-left
+}
+
+body .p-button-danger2 {
+    background-color: #b91c1c !important;
+    color: #fff !important
+}
+
+body .font-inherit, body .font-inherit * {
+    font-size: inherit !important
+}
+
+.cursor-pointer * {
+    cursor: pointer !important
+}
+
+.el-table-border {
+    @apply w-full table-auto border-collapse border border-gray-300
+}
+
+.el-table-border th, .el-table-border td {
+    @apply px-1 border border-gray-300
+}
+
+.p-inputtext {
+    width: 100%
+}
+
+html[dir=rtl] .p-password-toggle-mask-icon {
+    left: var(--p-form-field-padding-x);
+    right: auto
+}
+
+html[dir=rtl] .p-breadcrumb-separator svg {
+    rotate: 180deg !important
+}
+
+html[dir=rtl] .p-password:has(.p-password-toggle-mask-icon) .p-password-input {
+    padding-left: calc(var(--p-form-field-padding-x) * 2 + var(--p-icon-size));
+    padding-right: 12px
+}
+
+html[dir=rtl] .p-breadcrumb-separator {
+    transform: rotate(180deg)
+}
+
+html[dir=rtl] .p-datatable .p-datatable-thead > tr > th {
+    color: rgb(156, 163, 175, var(--tw-text-opacity));
+    @apply text-sm
+}
+
+html[dir=rtl] .p-paginator-content svg {
+    @apply rotate-180
+}
+
+html[dir=rtl] table tbody tr td {
+    @apply text-right text-sm
+}
+
+html[dir=rtl] .p-select-clear-icon {
+    left: var(--p-select-dropdown-width);
+    right: auto
+}
+
+.p-organizationchart-table > tbody > tr > td {
+    text-align: center !important
+}
+
+.multliselect .p-floatlabel:has(.p-inputwrapper-filled) label, .multliselect .p-inputwrapper-focus + label, .floating-price-input .p-floatlabel:has(.p-inputwrapper-filled) label, .floating-price-input .p-inputwrapper-focus + label {
+    top: -5px !important;
+    @apply bg-white
+}
+
+.floating-search-container .p-floatlabel:has(input:focus) label {
+    top: -5px !important;
+    padding: 0 9px;
+    @apply bg-white
+}
+
+.floating-input-search-client label {
+    top: -5px !important;
+    padding: 0 9px;
+    @apply bg-white
+}
+
+.basic-table {
+    @apply w-full border rounded-lg overflow-hidden;
+}
+
+.basic-table table {
+    @apply w-full;
+}
+
+.basic-table th {
+    /* @apply border border-t-0 first:border-r-0 last:border-l-0 bg-primary-500 text-white py-5 px-3 text-center; */
+}
+
+.basic-table td {
+    /* @apply border border-b-0 first:border-r-0 last:border-l-0 p-3 text-center!; */
+}
+.g-gantt-row-label{
+    @apply shadow-none;
+}
+

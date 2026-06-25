@@ -1,0 +1,25 @@
+<?php
+namespace App\Repositories\User\Board;
+
+use App\Repositories\Eloquent\EloquentRepository;
+
+/**
+ * BoardRepository
+ *
+ * This is a Board Repository class implementing the BoardRepositoryInterface.
+ * It provides methods such as : getData, show
+ */
+class BoardRepository extends EloquentRepository implements BoardRepositoryInterface
+{
+     // Add specific  Handling data methods here
+
+     #region Constructor
+     
+    #endregion Constructor
+
+    #region ===================== Start CRUD Methods extends from EloquentRepository: getData($model), show($model, $id) =====================
+
+    #region ===================== End CRUD Methods =====================
+
+
+}
